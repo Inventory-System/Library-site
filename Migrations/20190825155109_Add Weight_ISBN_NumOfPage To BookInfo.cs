@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookShop.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class AddWeight_ISBN_NumOfPageToBookInfo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -135,11 +135,13 @@ namespace BookShop.Migrations
                     Title = table.Column<string>(nullable: false),
                     Summary = table.Column<string>(nullable: true),
                     Price = table.Column<int>(nullable: false),
+                    NummOFPage = table.Column<int>(nullable: false),
+                    Wieght = table.Column<short>(nullable: false),
+                    ISBN = table.Column<string>(nullable: true),
                     Stock = table.Column<int>(nullable: false),
                     File = table.Column<string>(nullable: true),
                     NumOfPages = table.Column<int>(nullable: false),
                     Weight = table.Column<short>(nullable: false),
-                    ISBN = table.Column<string>(nullable: true),
                     Image = table.Column<byte[]>(type: "image", nullable: true),
                     LanguageID = table.Column<int>(nullable: false),
                     CategoryID = table.Column<int>(nullable: false),

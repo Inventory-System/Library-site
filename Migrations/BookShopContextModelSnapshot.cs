@@ -66,6 +66,8 @@ namespace BookShop.Migrations
 
                     b.Property<int>("NumOfPages");
 
+                    b.Property<int>("NummOFPage");
+
                     b.Property<int>("Price");
 
                     b.Property<int?>("PublisherID");
@@ -78,6 +80,8 @@ namespace BookShop.Migrations
                         .IsRequired();
 
                     b.Property<short>("Weight");
+
+                    b.Property<short>("Wieght");
 
                     b.HasKey("BookID");
 

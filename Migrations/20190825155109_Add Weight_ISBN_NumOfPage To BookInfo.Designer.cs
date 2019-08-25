@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookShop.Migrations
 {
     [DbContext(typeof(BookShopContext))]
-    [Migration("20190825142000_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190825155109_Add Weight_ISBN_NumOfPage To BookInfo")]
+    partial class AddWeight_ISBN_NumOfPageToBookInfo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,6 +68,8 @@ namespace BookShop.Migrations
 
                     b.Property<int>("NumOfPages");
 
+                    b.Property<int>("NummOFPage");
+
                     b.Property<int>("Price");
 
                     b.Property<int?>("PublisherID");
@@ -80,6 +82,8 @@ namespace BookShop.Migrations
                         .IsRequired();
 
                     b.Property<short>("Weight");
+
+                    b.Property<short>("Wieght");
 
                     b.HasKey("BookID");
 
