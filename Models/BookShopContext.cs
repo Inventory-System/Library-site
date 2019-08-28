@@ -21,6 +21,7 @@ namespace BookShop.Models
             modelBuilder.ApplyConfiguration(new CustomerMap());
             modelBuilder.ApplyConfiguration(new Order_BookMap());
             modelBuilder.ApplyConfiguration(new Book_TranslatorMap());
+            modelBuilder.ApplyConfiguration(new Book_CategoryMap());
         }
 
         public DbSet<Book> Books { get; set; }
