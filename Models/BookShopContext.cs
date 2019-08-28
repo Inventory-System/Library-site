@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookShop.Models;
 
 namespace BookShop.Models
 {
@@ -34,5 +35,6 @@ namespace BookShop.Models
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<OrderStatus> OrderStatuses { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<BookShop.Models.Translator> Translator { get; set; }
     }
 }
