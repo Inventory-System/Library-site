@@ -41,7 +41,9 @@ namespace BookShop.Areas.Admin.Controllers
             ViewBag.PublisherID = new SelectList(_context.Publishers, "Publisher", "PublisherName");
             ViewBag.AutherID = new SelectList(_context.Authors.Select(t=>new AutherList {AutherID=t.AuthorID,NameFamily=t.FirstName+ " "+t.LastName }), "AutherID", "NameFamily");
             ViewBag.TranslatorID = new SelectList(_context.Translator.Select(t=>new TranslatorList {TranslatorID=t.TranslatorID,NameFamily=t.Name+ " "+t.Family }), "TranslatorID", "NameFamily");
-            return View();
+
+            BooksCreateViewModel viewModel = new BooksCreateViewModel(categories);
+            return View(viewModel);
         }
     }
 }

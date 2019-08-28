@@ -193,3 +193,4 @@ C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\_Adm
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csprojAssemblyReference.cache
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\Index.g.cshtml.cs
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\Create.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\_sUBcATEGORIES.g.cshtml.cs

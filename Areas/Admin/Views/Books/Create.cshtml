@@ -44,21 +44,16 @@
                             </div>
                             <div class="card-body">
                                 <ul id="category" class="demo1">
-                                    <li><input type="checkbox" /> عمومی</li>
-                                    <li>
-                                        <input type="checkbox" /> هنر
-                                        <ul>
-                                            <li>
-                                                <input type="checkbox" /> نقاشی
-                                                <ul>
-                                                    <li><input type="checkbox" /> نقاشی روی پارچه</li>
-                                                    <li><input type="checkbox" /> نقاشی روی سفال</li>
-                                                </ul>
-                                            </li>
-                                            <li><input type="checkbox" /> خطاطی</li>
-                                        </ul>
-                                    </li>
-                                    <li><input type="checkbox" /> فنی مهندسی</li>
+                                    @foreach (var item in Model.Categories)
+                                    {
+                                        <li>
+                                            <input type="checkbox" value="@item.CategoryID" /> @item.CategoryName
+                                            @await  Html.PartialAsync("_SubCategories",item.SubCategories)
+                                           
+                                        </li>
+                                    }
+
+                                
                                 </ul>
 
                             </div>

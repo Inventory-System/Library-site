@@ -7,6 +7,11 @@ namespace BookShop.Models.ViewModels
 {
   public class BooksCreateViewModel
     {
+        public BooksCreateViewModel(IEnumerable<TreeViewCategory> viewCategories)
+        {
+            Categories = viewCategories;
+        }
+        public IEnumerable<TreeViewCategory> Categories { get; set; }
     
             
             public int BookID { get; set; }
