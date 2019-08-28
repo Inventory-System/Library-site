@@ -12284,11 +12284,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kakero\\Desktop\\New folder\\Library-site\\BookShop.csproj",
+      "projectUniqueName": "C:\\Users\\kakero\\Desktop\\BookShop\\Library-site\\BookShop.csproj",
       "projectName": "BookShop",
-      "projectPath": "C:\\Users\\kakero\\Desktop\\New folder\\Library-site\\BookShop.csproj",
+      "projectPath": "C:\\Users\\kakero\\Desktop\\BookShop\\Library-site\\BookShop.csproj",
       "packagesPath": "C:\\Users\\kakero\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kakero\\Desktop\\New folder\\Library-site\\obj\\",
+      "outputPath": "C:\\Users\\kakero\\Desktop\\BookShop\\Library-site\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

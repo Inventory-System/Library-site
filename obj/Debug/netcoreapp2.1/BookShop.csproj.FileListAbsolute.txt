@@ -147,3 +147,46 @@ C:\Users\kakero\Desktop\New folder\Library-site\obj\Debug\netcoreapp2.1\BookShop
 C:\Users\kakero\Desktop\New folder\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Translators\Index.g.cshtml.cs
 C:\Users\kakero\Desktop\New folder\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Translators\Index.g.cshtml.cs
 C:\Users\kakero\Desktop\New folder\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Translators\Create.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.deps.json
+C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.runtimeconfig.json
+C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.runtimeconfig.dev.json
+C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.dll
+C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.pdb
+C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.Views.dll
+C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.Views.pdb
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csprojAssemblyReference.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csproj.CoreCompileInputs.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorAssemblyInfo.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorAssemblyInfo.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.AssemblyInfoInputs.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.AssemblyInfo.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.TagHelpers.input.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.TagHelpers.output.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorCoreGenerate.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Languages\Create.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Languages\Delete.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Languages\Details.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Languages\Edit.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Languages\Index.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Translators\Create.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Translators\Index.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\_ViewStart.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Translators\Index.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorTargetAssemblyInfo.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorTargetAssemblyInfo.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.Views.pdb
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.dll
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.pdb
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csproj.CopyComplete
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Translators\Edit.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Translators\Delete.g.cshtml.cs

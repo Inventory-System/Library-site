@@ -43,5 +43,70 @@ namespace BookShop.Controllers
             }
             return View(ViewModel);
         }
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var Translator = await _context.Translator.FirstOrDefaultAsync(m => m.TranslatorID == id);
+                if (Translator == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return View(Translator);
+                }
+            }
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Translator translator)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Update(translator);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+                
+            }
+        }
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var Translator = await _context.Translator.FirstOrDefaultAsync(m=>m.TranslatorID==id);
+                if (Translator==null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    return View(Translator);
+                }
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Deleted(int? id)
+        {
+            var translator = await _context.Translator.FindAsync(id);
+            _context.Translator.Remove(translator);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }

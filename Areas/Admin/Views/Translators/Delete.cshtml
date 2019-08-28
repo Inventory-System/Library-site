@@ -1,0 +1,18 @@
+﻿@model BookShop.Models.Translator
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row text-right">
+    <h4> آیا شما میخواهید<span>@Model.Name   @Model.Family  را  از لیست مترجمان  حذف کنید ؟ </span></h4>
+    <form asp-action="Deleted">
+        <input type="hidden" value="@Model.TranslatorID" name="id" />
+        <input type="submit" value="بله" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-default">خیر</a>
+
+    </form>
+
+</div>
+
+
