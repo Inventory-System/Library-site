@@ -154,7 +154,6 @@ C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.d
 C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.pdb
 C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.Views.dll
 C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.Views.pdb
-C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csprojAssemblyReference.cache
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csproj.CoreCompileInputs.cache
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorAssemblyInfo.cache
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorAssemblyInfo.cs
@@ -191,3 +190,6 @@ C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.c
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Translators\Edit.g.cshtml.cs
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Translators\Delete.g.cshtml.cs
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\_Admin.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csprojAssemblyReference.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\Index.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\Create.g.cshtml.cs
