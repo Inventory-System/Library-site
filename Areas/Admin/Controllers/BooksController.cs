@@ -24,7 +24,70 @@ namespace BookShop.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            string AuthersName = "";
+            List<BooksIndexViewModel> ViewModel = new List<BooksIndexViewModel>();
+            //var Books = (from b in _context.Books
+            //             join p in _context.Publishers on b.PublisherID equals p.PublisherID
+            //             join u in _context.Author_Books on b.BookID equals u.BookID
+            //             join a in _context.Authors on u.AuthorID equals a.AuthorID
+            //             where (b.Delete == false)
+            //             select new BooksIndexViewModel
+            //             {
+            //                 BookID = b.BookID,
+            //                 ISBN = b.ISBN,
+            //                 IsPublish = b.IsPublish,
+            //                 Price = b.Price,
+            //                 PublishDate = b.PublishDate,
+            //                 Stock = b.Stock,
+            //                 Title = b.Title,
+            //                 PublisherName = p.PublisherName,
+            //                 Author = a.FirstName + " " + a.LastName,
+            //             }).GroupBy(b => b.BookID).Select(g => new { BookID = g.Key, BookGroups = g }).ToList();
+
+            var Books = (from u in _context.Author_Books.Include(b => b.Book).ThenInclude(p => p.Publisher)
+                         .Include(a => a.Author)
+                         where (u.Book.Delete == false)
+                         select new BooksIndexViewModel
+                         {
+                             Author = u.Author.FirstName + " " + u.Author.LastName,
+                             BookID = u.Book.BookID,
+                             ISBN = u.Book.ISBN,
+                             IsPublish = u.Book.IsPublish,
+                             Price = u.Book.Price,
+                             PublishDate = u.Book.PublishDate,
+                             PublisherName = u.Book.Publisher.PublisherName,
+                             Stock = u.Book.Stock,
+                             Title = u.Book.Title,
+                         }).GroupBy(b => b.BookID).Select(g => new { BookID = g.Key, BookGroups = g }).ToList(); ;
+
+            foreach (var item in Books)
+            {
+                AuthersName = "";
+                foreach (var group in item.BookGroups)
+                {
+                    if (AuthersName == "")
+                        AuthersName = group.Author;
+                    else
+                        AuthersName = AuthersName + " - " + group.Author;
+                }
+
+                BooksIndexViewModel VM = new BooksIndexViewModel()
+                {
+                    Author = AuthersName,
+                    BookID = item.BookID,
+                    ISBN = item.BookGroups.First().ISBN,
+                    Title = item.BookGroups.First().Title,
+                    Price = item.BookGroups.First().Price,
+                    IsPublish = item.BookGroups.First().IsPublish,
+                    PublishDate = item.BookGroups.First().PublishDate,
+                    PublisherName = item.BookGroups.First().PublisherName,
+                    Stock = item.BookGroups.First().Stock,
+                };
+
+                ViewModel.Add(VM);
+            }
+
+            return View(ViewModel);
         }
 
         public IActionResult Create()
