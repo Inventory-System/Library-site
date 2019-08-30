@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 
 namespace BookShop
 {
@@ -35,7 +37,15 @@ namespace BookShop
 
             services.AddTransient<BooksRepository>();
             services.AddTransient<BookShopContext>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
+            services.AddMvc(options =>
+            {
+                var F = services.BuildServiceProvider().GetService<IStringLocalizerFactory>();
+                var L = F.Create("ModelBindingMessages", "BookShop");
+                options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
+                 (x) => L["انتخاب یکی از موارد لیست الزامی است."]);
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
