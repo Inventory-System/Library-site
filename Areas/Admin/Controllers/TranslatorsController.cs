@@ -7,103 +7,119 @@ using BookShop.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookShop.Controllers
+namespace BookShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class TranslatorsController : Controller
     {
         private readonly BookShopContext _context;
-        public TranslatorsController( BookShopContext context)
+
+        public TranslatorsController(BookShopContext context)
         {
             _context = context;
         }
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult>  Index()
         {
-            return View(await _context.Translator.ToListAsync()); 
+            return View(await _context.Translator.ToListAsync());
         }
+
+        //public IActionResult Index()
+        //{
+        //    return View( _context.Translator.ToList());
+        //}
+
+
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(TranslatorCreateViewModel ViewModel)
+        public async Task<IActionResult> Create(TranslatorsCreateViewModel ViewModel)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 Translator translator = new Translator()
                 {
                     Name = ViewModel.Name,
-                    Family = ViewModel.Family,
+                    Family=ViewModel.Family,
                 };
+
                 _context.Translator.Add(translator);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(ViewModel);
         }
-        public async Task<IActionResult> Edit(int? id)
+
+
+        public async Task<IActionResult>  Edit(int? id)
         {
-            if (id==null)
+            if(id==null)
             {
                 return NotFound();
             }
+
             else
             {
                 var Translator = await _context.Translator.FirstOrDefaultAsync(m => m.TranslatorID == id);
-                if (Translator == null)
+                if(Translator==null)
                 {
                     return NotFound();
                 }
+
                 else
                 {
                     return View(Translator);
                 }
             }
-
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Translator translator)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 _context.Update(translator);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View();
-                
-            }
+
+            return View(translator);
         }
+
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
+            if(id==null)
             {
                 return NotFound();
             }
+
             else
             {
-                var Translator = await _context.Translator.FirstOrDefaultAsync(m=>m.TranslatorID==id);
-                if (Translator==null)
+                var Tranlator = await _context.Translator.FirstOrDefaultAsync(m => m.TranslatorID == id);
+                if(Tranlator==null)
                 {
                     return NotFound();
                 }
+
                 else
                 {
-                    return View(Translator);
+                    return View(Tranlator);
                 }
             }
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Deleted(int? id)
         {
-            var translator = await _context.Translator.FindAsync(id);
-            _context.Translator.Remove(translator);
+            var Translator = await _context.Translator.FindAsync(id);
+            _context.Translator.Remove(Translator);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");

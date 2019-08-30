@@ -33,7 +33,7 @@ namespace BookShop
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddTransient<BooksRrepository>();
+            services.AddTransient<BooksRepository>();
             services.AddTransient<BookShopContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

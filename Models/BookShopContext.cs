@@ -12,7 +12,7 @@ namespace BookShop.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\MSSQL;Database=BookShopDB;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-THPI2IH\MSSQL;Database=BookShopDB;Trusted_Connection=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,8 +36,9 @@ namespace BookShop.Models
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<OrderStatus> OrderStatuses { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Translator> Translator { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
-        public DbSet<Book_Category> BookCategory { get; set; }
-        public DbSet<BookShop.Models.Translator> Translator { get; set; }
+        public DbSet<Book_Category> Book_Categories { get; set; }
+        public DbSet<Book_Translator> Book_Translators { get; set; }
     }
 }

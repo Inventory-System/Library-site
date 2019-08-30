@@ -15,5 +15,4 @@ namespace BookShop.Models.ViewModels
         public string CategoryName { get; set; }
         public List<TreeViewCategory> SubCategories { get; set; }
     }
-
 }

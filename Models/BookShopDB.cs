@@ -17,40 +17,36 @@ namespace BookShop.Models
         public string Title { get; set; }
         public string Summary { get; set; }
         public int Price { get; set; }
-        public int NummOFPage { get; set; }
-        public short Wieght { get; set; }
-        public string ISBN { get; set; }
-        
         public int Stock { get; set; }
         public string File { get; set; }
         public int NumOfPages { get; set; }
         public short Weight { get; set; }
-        public bool IsPublish { get; set; }
+        public string ISBN { get; set; }
+        public bool? IsPublish { get; set; }
         public DateTime? PublishDate { get; set; }
-        public int  PublishYear { get; set; }
-        public  bool? Delete { get; set; }
-
+        public int PublishYear { get; set; }
+        public bool? Delete { get; set; }
+        public int PublisherID { get; set; }
 
         [Column(TypeName ="image")]
         public byte[] Image { get; set; }
         public int LanguageID { get; set; }
-
         public Language Language { get; set; }
-
         public Discount Discount { get; set; }
         public List<Author_Book> Author_Books { get; set; }
         public List<Order_Book> Order_Books { get; set; }
         public List<Book_Translator> book_Tranlators { get; set; }
-        public List<Book_Category> book_category { get; set; }
+        public List<Book_Category> book_Categories { get; set; }
         public Publisher Publisher { get; set; }
     }
+
     public class Book_Category
     {
         public int BookID { get; set; }
         public int CategoryID { get; set; }
-        public Book Book{ get; set; }
-        public Category Category{ get; set; }
 
+        public Book Book { get; set; }
+        public Category Category { get; set; }
     }
 
 
@@ -131,7 +127,7 @@ namespace BookShop.Models
 
         public Category category { get; set; }
         public List<Category> categories { get; set; }
-        public List<Book_Category> book_category { get; set; }
+        public List<Book_Category> book_Categories { get; set; }
     }
 
 
