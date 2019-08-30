@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\images\Kakero.jpg" />
+    <Content Remove="wwwroot\images\linux.png" />
   </ItemGroup>
 
   <ItemGroup>
