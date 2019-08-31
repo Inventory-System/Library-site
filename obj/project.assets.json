@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "MD.PersianDateTime.Core/2.3.5": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.0/MD.PersianDateTime.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/MD.PersianDateTime.Core.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4619,6 +4628,19 @@
     }
   },
   "libraries": {
+    "MD.PersianDateTime.Core/2.3.5": {
+      "sha512": "G0RN7tMkm8jLSRhsgpNRTre+t9NyCG6tDhUrb7iuYpICngGPsg9iaksiXcdRoa0kUIHrUNMh8g6HOOgKJwRLCw==",
+      "type": "package",
+      "path": "md.persiandatetime.core/2.3.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.0/MD.PersianDateTime.Core.dll",
+        "lib/netcoreapp2.0/MD.PersianDateTime.Core.xml",
+        "md.persiandatetime.core.2.3.5.nupkg.sha512",
+        "md.persiandatetime.core.nuspec"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "AIgEc1up4pvH8kXy+eG1x4Qfqd6piAq3yk11pveCQXWNkkYoiKdflSmcJZuWcerdMcAaoF0xC/mWGoTW4vF4Dg==",
       "type": "package",
@@ -12270,6 +12292,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "MD.PersianDateTime.Core >= 2.3.5",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.1.3",
       "Microsoft.EntityFrameworkCore.Tools >= 2.1.3",
@@ -12318,6 +12341,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "MD.PersianDateTime.Core": {
+            "target": "Package",
+            "version": "[2.3.5, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",

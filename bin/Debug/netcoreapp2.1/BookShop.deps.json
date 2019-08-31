@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "6336e0c75c912aa989bc15f0be02b8a00cb42b44"
+    "signature": "6e447e59ce7bdd40f509adae3336d5aee7c6874b"
   },
   "compilationOptions": {
     "defines": [
@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.1": {
       "BookShop/1.0.0": {
         "dependencies": {
+          "MD.PersianDateTime.Core": "2.3.5",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.3",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.3",
@@ -35,6 +36,17 @@
         },
         "compile": {
           "BookShop.dll": {}
+        }
+      },
+      "MD.PersianDateTime.Core/2.3.5": {
+        "runtime": {
+          "lib/netcoreapp2.0/MD.PersianDateTime.Core.dll": {
+            "assemblyVersion": "2.3.5.0",
+            "fileVersion": "2.3.5.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp2.0/MD.PersianDateTime.Core.dll": {}
         }
       },
       "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
@@ -3493,6 +3505,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "MD.PersianDateTime.Core/2.3.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-G0RN7tMkm8jLSRhsgpNRTre+t9NyCG6tDhUrb7iuYpICngGPsg9iaksiXcdRoa0kUIHrUNMh8g6HOOgKJwRLCw==",
+      "path": "md.persiandatetime.core/2.3.5",
+      "hashPath": "md.persiandatetime.core.2.3.5.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
       "type": "package",

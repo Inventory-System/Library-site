@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookShop.Classes;
 using BookShop.Models;
 using BookShop.Models.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -34,7 +35,7 @@ namespace BookShop
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            services.AddTransient<ConvertDate>();
             services.AddTransient<BooksRepository>();
             services.AddTransient<BookShopContext>();
             services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
