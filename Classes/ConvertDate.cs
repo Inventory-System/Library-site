@@ -16,7 +16,8 @@ namespace BookShop.Classes
         public string ConvertMiladiToShamsi(DateTime Date)
         {
             PersianDateTime persianDateTime = new PersianDateTime(Date);
-            return persianDateTime.ToString("yyyy/MM/dd");
+            return persianDateTime.ToString("dddd d MMMM yyyy ");
+            //return persianDateTime.ToString("dddd d MMMM yyyy ساعت hh:mm:ss tt");
         }
     }
 }
