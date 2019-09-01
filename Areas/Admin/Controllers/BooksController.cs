@@ -35,11 +35,12 @@ namespace BookShop.Areas.Admin.Controllers
 
             ViewBag.RowID = new SelectList(Rows,row);
             ViewBag.NumOfRow = (page - 1) * row + 1;
+            ViewBag.Search = title;
 
             List<BooksIndexViewModel> ViewModel = new List<BooksIndexViewModel>();
             var Books = (from u in _context.Author_Books.Include(b => b.Book).ThenInclude(p => p.Publisher)
                          .Include(a => a.Author)
-                         where (u.Book.Delete == false && u.Book.Title.Contains(title))
+                         where (u.Book.Delete == false && u.Book.Title.Contains(title.TrimStart().TrimEnd()))
                          select new 
                          {
                              Author = u.Author.FirstName + " " + u.Author.LastName,
