@@ -47,8 +47,8 @@
                                     @foreach (var item in Model.Categories)
                                     {
                                         <li>
-                                            <input type="checkbox" name="CategoryID" value="@item.CategoryID" /> @item.CategoryName
-                                            @await Html.PartialAsync("_SubCategories", item.SubCategories)
+                                            <input type="checkbox" name="CategoryID" value="@item.id" /> @item.title
+                                            @await Html.PartialAsync("_SubCategories", item.subs)
 
                                         </li>
                                     }

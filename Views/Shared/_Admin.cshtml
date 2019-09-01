@@ -13,6 +13,8 @@
     <link href="/select2/dist/css/select2.css" rel="stylesheet" />
     <link href="/css/bootstrap-fileinput.css" rel="stylesheet" />
     <link href="/css/TreeView.css" rel="stylesheet" />
+    <link href="~/css/comboTreePlugin.css" rel="stylesheet" />
+    <script src="/vendor/jquery/jquery.min.js"></script>
 </head>
 <body class="sidebar-fixed header-fixed">
     <div class="page-wrapper">
@@ -87,7 +89,7 @@
             </div>
         </div>
     </div>
-    <script src="/vendor/jquery/jquery.min.js"></script>
+    
     <script src="/vendor/popper.js/popper.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/vendor/chart.js/chart.min.js"></script>
@@ -98,6 +100,8 @@
     <script src="/select2/dist/js/select2.full.js"></script>
     <script src="/js/bootstrap-fileinput.js"></script>
     <script src="/js/TreeView.js"></script>
+    <script src="~/js/comboTreePlugin.js"></script>
+    <script src="~/js/icontains.js"></script>
 
     <script>
 
@@ -110,6 +114,6 @@
         $('.demo1').bonsai();
 
     </script>
-    @RenderSection("Scripts",false)
+    @RenderSection("Scripts", false)
 </body>
 </html>

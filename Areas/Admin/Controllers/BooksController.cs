@@ -88,6 +88,7 @@ namespace BookShop.Areas.Admin.Controllers
                 {"title",title}
             
             };
+            ViewBag.Categories = _repository.GetAllCategories();
             return View(PagingModel);
         }
 

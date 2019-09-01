@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        @if (ViewBag.Search !="")
+                        @if (ViewBag.Search != "")
                         {
                             <div class="col-md-4">
                                 <a href="/Admin/Books/Index" class="float-left"><i class="fa fa-arrow-alt-circle-left">بازگشت به لیست کتاب ها</i></a>
@@ -47,7 +47,7 @@
                     </div>
 
                 </form>
-                
+
 
                 <p>
                     <a class="btn btn-primary btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -92,10 +92,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">نویسنده</label>
-                                        <select class="select2 js-states form-control">
-                                            <option>حسین مرادی</option>
-                                            <option>زهرا رحمانی</option>
-                                        </select>
+                                        <input type="text" id="justAnotherInputBox" placeholder="جستوجو کنید" />
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -128,7 +125,7 @@
                         <thead>
                             <tr>
                                 <th>ردیف</th>
-                                <th>@Html.SortableHeaderFor(model=>model.Title,"Title")</th>
+                                <th>@Html.SortableHeaderFor(model => model.Title, "Title")</th>
                                 <th>@Html.SortableHeaderFor(model => model.Author, "Author")</th>
                                 <th>@Html.SortableHeaderFor(model => model.ISBN, "ISBN")</th>
                                 <th>@Html.SortableHeaderFor(model => model.Stock, "Stock")</th>
@@ -193,10 +190,22 @@
                             <vc:pager paging-list="@Model"></vc:pager>
                         </nav>*@
 
-                    
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var SampleJSONData = @Html.Raw(Json.Serialize(ViewBag.Categories));
+    var comboTree2;
+
+jQuery(document).ready(function($) {
+		comboTree2 = $('#justAnotherInputBox').comboTree({
+			source : SampleJSONData,
+			isMultiple: false
+		});
+});</script>
+
 

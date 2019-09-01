@@ -19,7 +19,7 @@ namespace BookShop.Models.Repository
         {
             var Categories = (from c in _context.Categories
                               where (c.ParentCategoryID == null)
-                              select new TreeViewCategory { CategoryID = c.CategoryID, CategoryName = c.CategoryName }).ToList();
+                              select new TreeViewCategory { id = c.CategoryID, title = c.CategoryName }).ToList();
             foreach (var item in Categories)
             {
                 BindSubCategories(item);
@@ -31,12 +31,12 @@ namespace BookShop.Models.Repository
         public void BindSubCategories(TreeViewCategory category)
         {
             var SubCategories = (from c in _context.Categories
-                                 where (c.ParentCategoryID == category.CategoryID)
-                                 select new TreeViewCategory { CategoryID = c.CategoryID, CategoryName = c.CategoryName }).ToList();
+                                 where (c.ParentCategoryID == category.id)
+                                 select new TreeViewCategory { id = c.CategoryID, title = c.CategoryName }).ToList();
             foreach(var item in SubCategories)
             {
                 BindSubCategories(item);
-                category.SubCategories.Add(item);
+                category.subs.Add(item);
             }
         }
     }

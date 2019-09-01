@@ -73,7 +73,7 @@ namespace AspNetCore
             WriteLiteral(" را از لیست مترجمان حذف کنید ؟ </span> </h4>\r\n    ");
             EndContext();
             BeginContext(272, 242, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c0a5647ec74489190e87d6fc8083253", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44dc2295d14c461e8d385af4109474c7", async() => {
                 BeginContext(299, 30, true);
                 WriteLiteral("\r\n        <input type=\"hidden\"");
                 EndContext();
@@ -88,7 +88,7 @@ WriteAttributeValue("", 337, Model.TranslatorID, 337, 19, false);
                 WriteLiteral(" name=\"id\" />\r\n        <input type=\"submit\" value=\"بله\" class=\"btn btn-danger\" />\r\n        ");
                 EndContext();
                 BeginContext(448, 53, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2d2f8af119fc4d62afebeaddf0fe8d94", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713df42ffa0b48b683a7432b3474274d", async() => {
                     BeginContext(494, 3, true);
                     WriteLiteral("خیر");
                     EndContext();
