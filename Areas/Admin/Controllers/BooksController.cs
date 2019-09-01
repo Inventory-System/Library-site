@@ -24,21 +24,22 @@ namespace BookShop.Areas.Admin.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int page=1,int row=5)
+        public IActionResult Index(int page=1,int row=5,string sortExpression="Title",string title="")
         {
             string AuthersName = "";
+            title = String.IsNullOrEmpty(title)? "" : title;
             List<int> Rows = new List<int>
             {
                 5,10,15,20,50,100
             };
 
             ViewBag.RowID = new SelectList(Rows,row);
-            ViewBag.NumOfPage = (page - 1) * row + 1;
+            ViewBag.NumOfRow = (page - 1) * row + 1;
 
             List<BooksIndexViewModel> ViewModel = new List<BooksIndexViewModel>();
             var Books = (from u in _context.Author_Books.Include(b => b.Book).ThenInclude(p => p.Publisher)
                          .Include(a => a.Author)
-                         where (u.Book.Delete == false)
+                         where (u.Book.Delete == false && u.Book.Title.Contains(title))
                          select new 
                          {
                              Author = u.Author.FirstName + " " + u.Author.LastName,
@@ -79,10 +80,12 @@ namespace BookShop.Areas.Admin.Controllers
                 ViewModel.Add(VM);
             }
 
-            var PagingModel = PagingList.Create(ViewModel,row, page);
+            var PagingModel = PagingList.Create(ViewModel,row, page,sortExpression,"Title");
             PagingModel.RouteValue = new RouteValueDictionary
             {
-                {"row",row}
+                {"row",row},
+                {"title",title}
+            
             };
             return View(PagingModel);
         }

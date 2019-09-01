@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Localization;
+using ReflectionIT.Mvc.Paging;
 
 namespace BookShop
 {
@@ -38,7 +39,7 @@ namespace BookShop
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+          
             services.AddTransient<ConvertDate>();
             services.AddTransient<BooksRepository>();
             services.AddTransient<BookShopContext>();
@@ -50,6 +51,12 @@ namespace BookShop
                 options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
                  (x) => L["انتخاب یکی از موارد لیست الزامی است."]);
 
+            });
+            services.AddPaging(options =>
+            {
+                options.ViewName = "Bootstrap4";
+                options.HtmlIndicatorDown = "<i class='fa fa-sort-amount-down'></i>";
+                options.HtmlIndicatorUp = "<i class='fa fa-sort-amount-up'></i>";
             });
         }
 

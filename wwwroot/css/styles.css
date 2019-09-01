@@ -9605,5 +9605,8 @@ h1, h2, h3, h4, h5, h6 {
 .pagination {
     justify-content: center;
 }
+th .fa.fa-sort-amount-down, th .fa.fa-sort-amount-up{
+    float:left;
+}
 
 
