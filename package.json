@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "select2": "4.0.6-rc.1"
+  }
+}

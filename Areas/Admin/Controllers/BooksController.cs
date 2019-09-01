@@ -3,7 +3,9 @@ using BookShop.Models.Repository;
 using BookShop.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,42 +24,32 @@ namespace BookShop.Areas.Admin.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page=1,int row=5)
         {
             string AuthersName = "";
-            List<BooksIndexViewModel> ViewModel = new List<BooksIndexViewModel>();
-            //var Books = (from b in _context.Books
-            //             join p in _context.Publishers on b.PublisherID equals p.PublisherID
-            //             join u in _context.Author_Books on b.BookID equals u.BookID
-            //             join a in _context.Authors on u.AuthorID equals a.AuthorID
-            //             where (b.Delete == false)
-            //             select new BooksIndexViewModel
-            //             {
-            //                 BookID = b.BookID,
-            //                 ISBN = b.ISBN,
-            //                 IsPublish = b.IsPublish,
-            //                 Price = b.Price,
-            //                 PublishDate = b.PublishDate,
-            //                 Stock = b.Stock,
-            //                 Title = b.Title,
-            //                 PublisherName = p.PublisherName,
-            //                 Author = a.FirstName + " " + a.LastName,
-            //             }).GroupBy(b => b.BookID).Select(g => new { BookID = g.Key, BookGroups = g }).ToList();
+            List<int> Rows = new List<int>
+            {
+                5,10,15,20,50,100
+            };
 
+            ViewBag.RowID = new SelectList(Rows,row);
+            ViewBag.NumOfPage = (page - 1) * row + 1;
+
+            List<BooksIndexViewModel> ViewModel = new List<BooksIndexViewModel>();
             var Books = (from u in _context.Author_Books.Include(b => b.Book).ThenInclude(p => p.Publisher)
                          .Include(a => a.Author)
                          where (u.Book.Delete == false)
-                         select new BooksIndexViewModel
+                         select new 
                          {
                              Author = u.Author.FirstName + " " + u.Author.LastName,
-                             BookID = u.Book.BookID,
-                             ISBN = u.Book.ISBN,
-                             IsPublish = u.Book.IsPublish,
-                             Price = u.Book.Price,
-                             PublishDate = u.Book.PublishDate,
-                             PublisherName = u.Book.Publisher.PublisherName,
-                             Stock = u.Book.Stock,
-                             Title = u.Book.Title,
+                             u.Book.BookID,
+                             u.Book.ISBN,
+                             u.Book.IsPublish,
+                             u.Book.Price,
+                             u.Book.PublishDate,
+                             u.Book.Publisher.PublisherName,
+                             u.Book.Stock,
+                             u.Book.Title,
                          }).GroupBy(b => b.BookID).Select(g => new { BookID = g.Key, BookGroups = g }).ToList(); ;
 
             foreach (var item in Books)
@@ -87,7 +79,12 @@ namespace BookShop.Areas.Admin.Controllers
                 ViewModel.Add(VM);
             }
 
-            return View(ViewModel);
+            var PagingModel = PagingList.Create(ViewModel,row, page);
+            PagingModel.RouteValue = new RouteValueDictionary
+            {
+                {"row",row}
+            };
+            return View(PagingModel);
         }
 
         public IActionResult Create()

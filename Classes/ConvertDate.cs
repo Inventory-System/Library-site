@@ -13,11 +13,11 @@ namespace BookShop.Classes
             PersianDateTime persianDateTime = PersianDateTime.Parse(Date);
             return persianDateTime.ToDateTime();
         }
-        public string ConvertMiladiToShamsi(DateTime Date)
+
+        public string ConvertMiladiToShamsi(DateTime Date,string Format)
         {
             PersianDateTime persianDateTime = new PersianDateTime(Date);
-            return persianDateTime.ToString("dddd d MMMM yyyy ");
-            //return persianDateTime.ToString("dddd d MMMM yyyy ساعت hh:mm:ss tt");
+            return persianDateTime.ToString(Format);
         }
     }
 }
