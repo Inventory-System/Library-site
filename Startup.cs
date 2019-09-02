@@ -39,7 +39,7 @@ namespace BookShop
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-          
+
             services.AddTransient<ConvertDate>();
             services.AddTransient<BooksRepository>();
             services.AddTransient<BookShopContext>();
@@ -52,8 +52,8 @@ namespace BookShop
                  (x) => L["انتخاب یکی از موارد لیست الزامی است."]);
 
             });
-            services.AddPaging(options =>
-            {
+
+            services.AddPaging(options=>{
                 options.ViewName = "Bootstrap4";
                 options.HtmlIndicatorDown = "<i class='fa fa-sort-amount-down'></i>";
                 options.HtmlIndicatorUp = "<i class='fa fa-sort-amount-up'></i>";
@@ -85,8 +85,8 @@ namespace BookShop
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-            name: "areas",
-            template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: "default",

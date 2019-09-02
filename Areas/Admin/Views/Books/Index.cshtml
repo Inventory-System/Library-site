@@ -45,7 +45,7 @@
 
                     </div>
                 </form>
-
+                
 
                 <p>
                     <a class="btn btn-primary btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -59,7 +59,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">عنوان</label>
-                                        <input class="form-control" name="Title" placeholder="عنوان">
+                                        <input class="form-control" name="Title"  placeholder="عنوان">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -102,7 +102,7 @@
                                     <div class="form-group">
                                         <label class="form-control-label">ناشر</label>
                                         <select class="select2 js-states form-control" name="Publisher" asp-items="ViewBag.PublisherID">
-                                            <option value="">همه ناشرین</option>
+                                           <option value="">همه ناشرین</option>
                                         </select>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                         <thead>
                             <tr>
                                 <th>ردیف</th>
-                                <th>@Html.SortableHeaderFor(model => model.Title, "Title")</th>
+                                <th>@Html.SortableHeaderFor(model=>model.Title,"Title")</th>
                                 <th>@Html.SortableHeaderFor(model => model.Author, "Author")</th>
                                 <th>@Html.SortableHeaderFor(model => model.ISBN, "ISBN")</th>
                                 <th>@Html.SortableHeaderFor(model => model.Stock, "Stock")</th>
@@ -183,7 +183,7 @@
                             <vc:pager paging-list="@Model"></vc:pager>
                         </nav>*@
 
-
+                    
                 </div>
             </div>
         </div>

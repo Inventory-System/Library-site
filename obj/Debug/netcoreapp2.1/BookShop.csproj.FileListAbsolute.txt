@@ -122,6 +122,7 @@ E:\ASP.NET Core Training\BookShop - Copy\BookShop\obj\Debug\netcoreapp2.1\BookSh
 E:\ASP.NET Core Training\BookShop - Copy\BookShop\obj\Debug\netcoreapp2.1\BookShop.dll
 E:\ASP.NET Core Training\BookShop - Copy\BookShop\obj\Debug\netcoreapp2.1\BookShop.pdb
 E:\ASP.NET Core Training\BookShop - Copy\BookShop\obj\Debug\netcoreapp2.1\BookShop.csproj.CopyComplete
+E:\ASP.NET Core Training\BookShop - Copy\BookShop\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\AdvancedSearch.g.cshtml.cs
 C:\Users\kakero\Downloads\Music\BookShop\BookShop\bin\Debug\netcoreapp2.1\BookShop.deps.json
 C:\Users\kakero\Downloads\Music\BookShop\BookShop\bin\Debug\netcoreapp2.1\BookShop.runtimeconfig.json
 C:\Users\kakero\Downloads\Music\BookShop\BookShop\bin\Debug\netcoreapp2.1\BookShop.runtimeconfig.dev.json
@@ -138,6 +139,7 @@ C:\Users\kakero\Downloads\Music\BookShop\BookShop\obj\Debug\netcoreapp2.1\BookSh
 C:\Users\kakero\Downloads\Music\BookShop\BookShop\obj\Debug\netcoreapp2.1\BookShop.TagHelpers.input.cache
 C:\Users\kakero\Downloads\Music\BookShop\BookShop\obj\Debug\netcoreapp2.1\BookShop.TagHelpers.output.cache
 C:\Users\kakero\Downloads\Music\BookShop\BookShop\obj\Debug\netcoreapp2.1\BookShop.RazorCoreGenerate.cache
+C:\Users\kakero\Downloads\Music\BookShop\BookShop\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\AdvancedSearch.g.cshtml.cs
 C:\Users\kakero\Downloads\Music\BookShop\BookShop\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\Create.g.cshtml.cs
 C:\Users\kakero\Downloads\Music\BookShop\BookShop\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\Index.g.cshtml.cs
 C:\Users\kakero\Downloads\Music\BookShop\BookShop\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\_SubCategories.g.cshtml.cs
@@ -184,6 +186,7 @@ C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.A
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.TagHelpers.input.cache
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.TagHelpers.output.cache
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorCoreGenerate.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\AdvancedSearch.g.cshtml.cs
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\Create.g.cshtml.cs
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\Index.g.cshtml.cs
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\_SubCategories.g.cshtml.cs

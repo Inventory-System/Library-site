@@ -26,8 +26,7 @@ namespace BookShop.Areas.Admin.Controllers
 
         public IActionResult Index(int page=1,int row=5,string sortExpression="Title",string title="")
         {
-            string AuthersName = "";
-            title = String.IsNullOrEmpty(title)? "" : title;
+            title = String.IsNullOrEmpty(title) ? "" : title;
             List<int> Rows = new List<int>
             {
                 5,10,15,20,50,100
@@ -37,64 +36,34 @@ namespace BookShop.Areas.Admin.Controllers
             ViewBag.NumOfRow = (page - 1) * row + 1;
             ViewBag.Search = title;
 
-            List<BooksIndexViewModel> ViewModel = new List<BooksIndexViewModel>();
-            var Books = (from u in _context.Author_Books.Include(b => b.Book).ThenInclude(p => p.Publisher)
-                         .Include(a => a.Author)
-                         where (u.Book.Delete == false && u.Book.Title.Contains(title.TrimStart().TrimEnd()))
-                         select new 
-                         {
-                             Author = u.Author.FirstName + " " + u.Author.LastName,
-                             u.Book.BookID,
-                             u.Book.ISBN,
-                             u.Book.IsPublish,
-                             u.Book.Price,
-                             u.Book.PublishDate,
-                             u.Book.Publisher.PublisherName,
-                             u.Book.Stock,
-                             u.Book.Title,
-                         }).GroupBy(b => b.BookID).Select(g => new { BookID = g.Key, BookGroups = g }).ToList(); ;
-
-            foreach (var item in Books)
-            {
-                AuthersName = "";
-                foreach (var group in item.BookGroups)
-                {
-                    if (AuthersName == "")
-                        AuthersName = group.Author;
-                    else
-                        AuthersName = AuthersName + " - " + group.Author;
-                }
-
-                BooksIndexViewModel VM = new BooksIndexViewModel()
-                {
-                    Author = AuthersName,
-                    BookID = item.BookID,
-                    ISBN = item.BookGroups.First().ISBN,
-                    Title = item.BookGroups.First().Title,
-                    Price = item.BookGroups.First().Price,
-                    IsPublish = item.BookGroups.First().IsPublish,
-                    PublishDate = item.BookGroups.First().PublishDate,
-                    PublisherName = item.BookGroups.First().PublisherName,
-                    Stock = item.BookGroups.First().Stock,
-                };
-
-                ViewModel.Add(VM);
-            }
-
-            var PagingModel = PagingList.Create(ViewModel,row, page,sortExpression,"Title");
+            var PagingModel = PagingList.Create(_repository.GetAllBooks(title,"","","","","",""),row, page,sortExpression,"Title");
             PagingModel.RouteValue = new RouteValueDictionary
             {
                 {"row",row},
-                {"title",title}
-            
+                {"title",title }
             };
+
             ViewBag.Categories = _repository.GetAllCategories();
-            ViewBag.LanguageID = new SelectList(_context.Languages, "LanguageID", "LanguageName");
-            ViewBag.PublisherID = new SelectList(_context.Publishers, "PublisherID", "PublisherName");
-            ViewBag.AuthorID = new SelectList(_context.Authors.Select(t => new AuthorList { AuthorID = t.AuthorID, NameFamily = t.FirstName + " " + t.LastName }), "AuthorID", "NameFamily");
-            ViewBag.TranslatorID = new SelectList(_context.Translator.Select(t => new TranslatorList { TranslatorID = t.TranslatorID, NameFamily = t.Name + " " + t.Family }), "TranslatorID", "NameFamily");
+            ViewBag.LanguageID = new SelectList(_context.Languages, "LanguageName", "LanguageName");
+            ViewBag.PublisherID = new SelectList(_context.Publishers, "PublisherName", "PublisherName");
+            ViewBag.AuthorID = new SelectList(_context.Authors.Select(t => new AuthorList { AuthorID = t.AuthorID, NameFamily = t.FirstName + " " + t.LastName }), "NameFamily", "NameFamily");
+            ViewBag.TranslatorID = new SelectList(_context.Translator.Select(t => new TranslatorList { TranslatorID = t.TranslatorID, NameFamily = t.Name + " " + t.Family }), "NameFamily", "NameFamily");
 
             return View(PagingModel);
+        }
+
+
+        public IActionResult AdvancedSearch(BooksAdvancedSearch ViewModel)
+        {
+            ViewModel.Title = String.IsNullOrEmpty(ViewModel.Title) ? "" : ViewModel.Title;
+            ViewModel.ISBN = String.IsNullOrEmpty(ViewModel.ISBN) ? "" : ViewModel.ISBN;
+            ViewModel.Publisher = String.IsNullOrEmpty(ViewModel.Publisher) ? "" : ViewModel.Publisher;
+            ViewModel.Author = String.IsNullOrEmpty(ViewModel.Author) ? "" : ViewModel.Author;
+            ViewModel.Translator = String.IsNullOrEmpty(ViewModel.Translator) ? "" : ViewModel.Translator;
+            ViewModel.Category = String.IsNullOrEmpty(ViewModel.Category) ? "" : ViewModel.Category;
+            ViewModel.Language = String.IsNullOrEmpty(ViewModel.Language) ? "" : ViewModel.Language;
+            var Books = _repository.GetAllBooks(ViewModel.Title,ViewModel.ISBN,ViewModel.Language,ViewModel.Publisher,ViewModel.Author,ViewModel.Translator,ViewModel.Category);
+            return View(Books);
         }
 
         public IActionResult Create()
