@@ -89,6 +89,11 @@ namespace BookShop.Areas.Admin.Controllers
             
             };
             ViewBag.Categories = _repository.GetAllCategories();
+            ViewBag.LanguageID = new SelectList(_context.Languages, "LanguageID", "LanguageName");
+            ViewBag.PublisherID = new SelectList(_context.Publishers, "PublisherID", "PublisherName");
+            ViewBag.AuthorID = new SelectList(_context.Authors.Select(t => new AuthorList { AuthorID = t.AuthorID, NameFamily = t.FirstName + " " + t.LastName }), "AuthorID", "NameFamily");
+            ViewBag.TranslatorID = new SelectList(_context.Translator.Select(t => new TranslatorList { TranslatorID = t.TranslatorID, NameFamily = t.Name + " " + t.Family }), "TranslatorID", "NameFamily");
+
             return View(PagingModel);
         }
 

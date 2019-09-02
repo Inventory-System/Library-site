@@ -39,13 +39,11 @@
                         @if (ViewBag.Search != "")
                         {
                             <div class="col-md-4">
-                                <a href="/Admin/Books/Index" class="float-left"><i class="fa fa-arrow-alt-circle-left">بازگشت به لیست کتاب ها</i></a>
-
+                                <a href="/Admin/Books/Index" class="float-left"><i class="fa fa-arrow-circle-left"></i>  بازگشت به لیست کتاب ها   </a>
                             </div>
                         }
 
                     </div>
-
                 </form>
 
 
@@ -56,60 +54,55 @@
                 </p>
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
-                        <form>
+                        <form asp-action="AdvancedSearch">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">عنوان</label>
-                                        <input class="form-control" placeholder="عنوان">
+                                        <input class="form-control" name="Title" placeholder="عنوان">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">شابک</label>
-                                        <input class="form-control" placeholder="شابک">
+                                        <input class="form-control" name="ISBN" placeholder="شابک">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">زبان</label>
-                                        <select class="select2 js-states form-control">
-                                            <option>فارسی</option>
-                                            <option>عربی</option>
-                                            <option>purple</option>
+                                        <select class="select2 js-states form-control" name="Language" asp-items="ViewBag.LanguageID">
+                                            <option value="">همه زبان ها</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">دسته بندی</label>
-                                        <select class="select2 js-states form-control">
-                                            <option>فارسی</option>
-                                            <option>عربی</option>
-                                        </select>
+                                        <input type="text" id="justAnotherInputBox" name="Category" placeholder="جستجو کنید" />
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">نویسنده</label>
-                                        <input type="text" id="justAnotherInputBox" placeholder="جستوجو کنید" />
+                                        <select class="select2 js-states form-control" name="Author" asp-items="ViewBag.AuthorID">
+                                            <option value="">همه نویسندگان</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">مترجم</label>
-                                        <select class="select2 js-states form-control">
-                                            <option>حسین مرادی </option>
-                                            <option>زهرا رحمانی</option>
+                                        <select class="select2 js-states form-control" name="Translator" asp-items="ViewBag.TranslatorID">
+                                            <option value="">همه مترجمان</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="form-control-label">ناشر</label>
-                                        <select class="select2 js-states form-control">
-                                            <option>انتشارات رسا</option>
-
+                                        <select class="select2 js-states form-control" name="Publisher" asp-items="ViewBag.PublisherID">
+                                            <option value="">همه ناشرین</option>
                                         </select>
                                     </div>
                                 </div>
@@ -207,5 +200,3 @@ jQuery(document).ready(function($) {
 			isMultiple: false
 		});
 });</script>
-
-
