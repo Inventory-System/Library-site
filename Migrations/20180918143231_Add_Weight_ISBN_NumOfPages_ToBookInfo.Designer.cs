@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookShop.Migrations
 {
     [DbContext(typeof(BookShopContext))]
-    [Migration("20190825155109_Add Weight_ISBN_NumOfPage To BookInfo")]
-    partial class AddWeight_ISBN_NumOfPageToBookInfo
+    [Migration("20180918143231_Add_Weight_ISBN_NumOfPages_ToBookInfo")]
+    partial class Add_Weight_ISBN_NumOfPages_ToBookInfo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,8 +55,6 @@ namespace BookShop.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryID");
-
                     b.Property<string>("File");
 
                     b.Property<string>("ISBN");
@@ -68,11 +66,9 @@ namespace BookShop.Migrations
 
                     b.Property<int>("NumOfPages");
 
-                    b.Property<int>("NummOFPage");
-
                     b.Property<int>("Price");
 
-                    b.Property<int?>("PublisherID");
+                    b.Property<int>("SCategoryID");
 
                     b.Property<int>("Stock");
 
@@ -83,30 +79,13 @@ namespace BookShop.Migrations
 
                     b.Property<short>("Weight");
 
-                    b.Property<short>("Wieght");
-
                     b.HasKey("BookID");
-
-                    b.HasIndex("CategoryID");
 
                     b.HasIndex("LanguageID");
 
-                    b.HasIndex("PublisherID");
+                    b.HasIndex("SCategoryID");
 
                     b.ToTable("BookInfo");
-                });
-
-            modelBuilder.Entity("BookShop.Models.Book_Translator", b =>
-                {
-                    b.Property<int>("BookID");
-
-                    b.Property<int>("TranslatorID");
-
-                    b.HasKey("BookID", "TranslatorID");
-
-                    b.HasIndex("TranslatorID");
-
-                    b.ToTable("Book_Translator");
                 });
 
             modelBuilder.Entity("BookShop.Models.Category", b =>
@@ -117,11 +96,7 @@ namespace BookShop.Migrations
 
                     b.Property<string>("CategoryName");
 
-                    b.Property<int?>("ParentCategoryID");
-
                     b.HasKey("CategoryID");
-
-                    b.HasIndex("ParentCategoryID");
 
                     b.ToTable("Categories");
                 });
@@ -266,32 +241,21 @@ namespace BookShop.Migrations
                     b.ToTable("Provices");
                 });
 
-            modelBuilder.Entity("BookShop.Models.Publisher", b =>
+            modelBuilder.Entity("BookShop.Models.SubCategory", b =>
                 {
-                    b.Property<int>("PublisherID")
+                    b.Property<int>("SubCategoryID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("PublisherName");
+                    b.Property<int?>("CategoryID");
 
-                    b.HasKey("PublisherID");
+                    b.Property<string>("SubCategoryName");
 
-                    b.ToTable("Publisher");
-                });
+                    b.HasKey("SubCategoryID");
 
-            modelBuilder.Entity("BookShop.Models.Translator", b =>
-                {
-                    b.Property<int>("TranslatorID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.HasIndex("CategoryID");
 
-                    b.Property<string>("Family");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("TranslatorID");
-
-                    b.ToTable("Translator");
+                    b.ToTable("SubCategories");
                 });
 
             modelBuilder.Entity("BookShop.Models.Author_Book", b =>
@@ -309,39 +273,15 @@ namespace BookShop.Migrations
 
             modelBuilder.Entity("BookShop.Models.Book", b =>
                 {
-                    b.HasOne("BookShop.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("BookShop.Models.Language", "Language")
                         .WithMany("Books")
                         .HasForeignKey("LanguageID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("BookShop.Models.Publisher", "Publisher")
+                    b.HasOne("BookShop.Models.SubCategory", "SubCategory")
                         .WithMany("Books")
-                        .HasForeignKey("PublisherID");
-                });
-
-            modelBuilder.Entity("BookShop.Models.Book_Translator", b =>
-                {
-                    b.HasOne("BookShop.Models.Book", "Book")
-                        .WithMany("book_Tranlators")
-                        .HasForeignKey("BookID")
+                        .HasForeignKey("SCategoryID")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("BookShop.Models.Translator", "Translator")
-                        .WithMany("book_Tranlators")
-                        .HasForeignKey("TranslatorID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BookShop.Models.Category", b =>
-                {
-                    b.HasOne("BookShop.Models.Category", "category")
-                        .WithMany("categories")
-                        .HasForeignKey("ParentCategoryID");
                 });
 
             modelBuilder.Entity("BookShop.Models.City", b =>
@@ -394,6 +334,13 @@ namespace BookShop.Migrations
                         .WithMany("Order_Books")
                         .HasForeignKey("OrderID")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BookShop.Models.SubCategory", b =>
+                {
+                    b.HasOne("BookShop.Models.Category", "Category")
+                        .WithMany("SubCategory")
+                        .HasForeignKey("CategoryID");
                 });
 #pragma warning restore 612, 618
         }

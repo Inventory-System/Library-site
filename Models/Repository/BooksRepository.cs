@@ -45,7 +45,7 @@ namespace BookShop.Models.Repository
         {
             string AuthersName = "";
             string TranslatorName = "";
-            string CategoryName = "";
+            string CategotyName = "";
             List<BooksIndexViewModel> ViewModel = new List<BooksIndexViewModel>();
             var Books = (from u in _context.Author_Books.Include(b => b.Book).ThenInclude(p => p.Publisher)
                          .Include(a => a.Author) 
@@ -65,9 +65,8 @@ namespace BookShop.Models.Repository
                          select new
                          {
                              Author = u.Author.FirstName + " " + u.Author.LastName,
-                             Translator=bts!=null?trl.Name+" "+trl.Family : "",
-                             Category=bct!=null ? cog.CategoryName : "",
-                             l.LanguageName,
+                             Translator=trl!=null?trl.Name+" "+trl.Family :"",
+                             Category=cog!=null ? cog.CategoryName : "",
                              u.Book.BookID,
                              u.Book.ISBN,
                              u.Book.IsPublish,
@@ -76,36 +75,37 @@ namespace BookShop.Models.Repository
                              u.Book.Publisher.PublisherName,
                              u.Book.Stock,
                              u.Book.Title,
-                         }).Where(a=>a.Author.Contains(Author) && a.Translator.Contains(Translator) && a.Category.Contains(Category)).GroupBy(b => b.BookID).Select(g => new { BookID = g.Key, BookGroups = g }).ToList(); ;
+                             l.LanguageName,
+                         }).Where(a=>a.Author.Contains(Author.TrimStart().TrimEnd()) && a.Translator.Contains(Translator.TrimStart().TrimEnd())&& a.Category.Contains(Category.TrimStart().TrimEnd()))
+                         .GroupBy(b => b.BookID).Select(g => new { BookID = g.Key, BookGroups = g }).ToList(); ;
 
             foreach (var item in Books)
             {
                 AuthersName = "";
                 TranslatorName = "";
-                CategoryName = "";
-                foreach (var group in item.BookGroups.Select(a=>a.Author).Distinct())
+                CategotyName = "";
+                foreach (var a in item.BookGroups.Select(a=>a.Author).Distinct())
                 {
                     if (AuthersName == "")
-                        AuthersName = group;
+                        AuthersName = a;
                     else
-                        AuthersName = AuthersName + " - " + group;
+                        AuthersName = AuthersName + " - " + a;
                 }
 
-                foreach (var group in item.BookGroups.Select(a => a.Translator).Distinct())
+                foreach (var a in item.BookGroups.Select(a => a.Translator).Distinct())
                 {
                     if (TranslatorName == "")
-                        TranslatorName = group;
+                        TranslatorName = a;
                     else
-                        TranslatorName = TranslatorName + " - " + group;
+                        TranslatorName = TranslatorName + " - " + a;
                 }
 
-
-                foreach (var group in item.BookGroups.Select(a => a.Category).Distinct())
+                foreach (var a in item.BookGroups.Select(a => a.Category).Distinct())
                 {
-                    if (CategoryName == "")
-                        CategoryName = group;
+                    if (CategotyName == "")
+                        CategotyName = a;
                     else
-                        CategoryName = CategoryName + " - " + group;
+                        CategotyName = CategotyName + " - " + a;
                 }
 
                 BooksIndexViewModel VM = new BooksIndexViewModel()
@@ -119,9 +119,9 @@ namespace BookShop.Models.Repository
                     PublishDate = item.BookGroups.First().PublishDate,
                     PublisherName = item.BookGroups.First().PublisherName,
                     Stock = item.BookGroups.First().Stock,
-                    Translator=TranslatorName,
-                    Category=CategoryName,
                     Language=item.BookGroups.First().LanguageName,
+                    Category=CategotyName,
+                    Translator=TranslatorName,
                 };
 
                 ViewModel.Add(VM);

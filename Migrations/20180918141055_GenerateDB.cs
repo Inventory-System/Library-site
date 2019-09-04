@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookShop.Migrations
 {
-    public partial class AddWeight_ISBN_NumOfPageToBookInfo : Migration
+    public partial class GenerateDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,18 +28,11 @@ namespace BookShop.Migrations
                 {
                     CategoryID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CategoryName = table.Column<string>(nullable: true),
-                    ParentCategoryID = table.Column<int>(nullable: true)
+                    CategoryName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.CategoryID);
-                    table.ForeignKey(
-                        name: "FK_Categories_Categories_ParentCategoryID",
-                        column: x => x.ParentCategoryID,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryID",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -81,30 +74,23 @@ namespace BookShop.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Publisher",
+                name: "SubCategories",
                 columns: table => new
                 {
-                    PublisherID = table.Column<int>(nullable: false)
+                    SubCategoryID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PublisherName = table.Column<string>(nullable: true)
+                    SubCategoryName = table.Column<string>(nullable: true),
+                    CategoryID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Publisher", x => x.PublisherID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Translator",
-                columns: table => new
-                {
-                    TranslatorID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    Family = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Translator", x => x.TranslatorID);
+                    table.PrimaryKey("PK_SubCategories", x => x.SubCategoryID);
+                    table.ForeignKey(
+                        name: "FK_SubCategories_Categories_CategoryID",
+                        column: x => x.CategoryID,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -135,27 +121,15 @@ namespace BookShop.Migrations
                     Title = table.Column<string>(nullable: false),
                     Summary = table.Column<string>(nullable: true),
                     Price = table.Column<int>(nullable: false),
-                    NummOFPage = table.Column<int>(nullable: false),
-                    Wieght = table.Column<short>(nullable: false),
-                    ISBN = table.Column<string>(nullable: true),
                     Stock = table.Column<int>(nullable: false),
                     File = table.Column<string>(nullable: true),
-                    NumOfPages = table.Column<int>(nullable: false),
-                    Weight = table.Column<short>(nullable: false),
                     Image = table.Column<byte[]>(type: "image", nullable: true),
                     LanguageID = table.Column<int>(nullable: false),
-                    CategoryID = table.Column<int>(nullable: false),
-                    PublisherID = table.Column<int>(nullable: true)
+                    SCategoryID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BookInfo", x => x.BookID);
-                    table.ForeignKey(
-                        name: "FK_BookInfo_Categories_CategoryID",
-                        column: x => x.CategoryID,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryID",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_BookInfo_Languages_LanguageID",
                         column: x => x.LanguageID,
@@ -163,11 +137,11 @@ namespace BookShop.Migrations
                         principalColumn: "LanguageID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookInfo_Publisher_PublisherID",
-                        column: x => x.PublisherID,
-                        principalTable: "Publisher",
-                        principalColumn: "PublisherID",
-                        onDelete: ReferentialAction.Restrict);
+                        name: "FK_BookInfo_SubCategories_SCategoryID",
+                        column: x => x.SCategoryID,
+                        principalTable: "SubCategories",
+                        principalColumn: "SubCategoryID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -225,30 +199,6 @@ namespace BookShop.Migrations
                         column: x => x.BookID,
                         principalTable: "BookInfo",
                         principalColumn: "BookID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Book_Translator",
-                columns: table => new
-                {
-                    TranslatorID = table.Column<int>(nullable: false),
-                    BookID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Book_Translator", x => new { x.BookID, x.TranslatorID });
-                    table.ForeignKey(
-                        name: "FK_Book_Translator_BookInfo_BookID",
-                        column: x => x.BookID,
-                        principalTable: "BookInfo",
-                        principalColumn: "BookID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Book_Translator_Translator_TranslatorID",
-                        column: x => x.TranslatorID,
-                        principalTable: "Translator",
-                        principalColumn: "TranslatorID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -330,29 +280,14 @@ namespace BookShop.Migrations
                 column: "AuthorID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Book_Translator_TranslatorID",
-                table: "Book_Translator",
-                column: "TranslatorID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BookInfo_CategoryID",
-                table: "BookInfo",
-                column: "CategoryID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_BookInfo_LanguageID",
                 table: "BookInfo",
                 column: "LanguageID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookInfo_PublisherID",
+                name: "IX_BookInfo_SCategoryID",
                 table: "BookInfo",
-                column: "PublisherID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Categories_ParentCategoryID",
-                table: "Categories",
-                column: "ParentCategoryID");
+                column: "SCategoryID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cities_ProviceProvinceID",
@@ -383,15 +318,17 @@ namespace BookShop.Migrations
                 name: "IX_Orders_OrderStatusID",
                 table: "Orders",
                 column: "OrderStatusID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SubCategories_CategoryID",
+                table: "SubCategories",
+                column: "CategoryID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Author_Books");
-
-            migrationBuilder.DropTable(
-                name: "Book_Translator");
 
             migrationBuilder.DropTable(
                 name: "Discounts");
@@ -403,28 +340,25 @@ namespace BookShop.Migrations
                 name: "Authors");
 
             migrationBuilder.DropTable(
-                name: "Translator");
-
-            migrationBuilder.DropTable(
                 name: "BookInfo");
 
             migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Categories");
-
-            migrationBuilder.DropTable(
                 name: "Languages");
 
             migrationBuilder.DropTable(
-                name: "Publisher");
+                name: "SubCategories");
 
             migrationBuilder.DropTable(
                 name: "Customers");
 
             migrationBuilder.DropTable(
                 name: "OrderStatuses");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Cities");

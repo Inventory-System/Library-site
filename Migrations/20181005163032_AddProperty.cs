@@ -2,7 +2,7 @@
 
 namespace BookShop.Migrations
 {
-    public partial class Add_Property : Migration
+    public partial class AddProperty : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,12 +32,12 @@ namespace BookShop.Migrations
 
             migrationBuilder.RenameTable(
                 name: "Book_Category",
-                newName: "BookCategory");
+                newName: "Book_Categories");
 
             migrationBuilder.RenameIndex(
                 name: "IX_Book_Category_CategoryID",
-                table: "BookCategory",
-                newName: "IX_BookCategory_CategoryID");
+                table: "Book_Categories",
+                newName: "IX_Book_Categories_CategoryID");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Publishers",
@@ -45,21 +45,21 @@ namespace BookShop.Migrations
                 column: "PublisherID");
 
             migrationBuilder.AddPrimaryKey(
-                name: "PK_BookCategory",
-                table: "BookCategory",
+                name: "PK_Book_Categories",
+                table: "Book_Categories",
                 columns: new[] { "BookID", "CategoryID" });
 
             migrationBuilder.AddForeignKey(
-                name: "FK_BookCategory_BookInfo_BookID",
-                table: "BookCategory",
+                name: "FK_Book_Categories_BookInfo_BookID",
+                table: "Book_Categories",
                 column: "BookID",
                 principalTable: "BookInfo",
                 principalColumn: "BookID",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_BookCategory_Categories_CategoryID",
-                table: "BookCategory",
+                name: "FK_Book_Categories_Categories_CategoryID",
+                table: "Book_Categories",
                 column: "CategoryID",
                 principalTable: "Categories",
                 principalColumn: "CategoryID",
@@ -77,12 +77,12 @@ namespace BookShop.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_BookCategory_BookInfo_BookID",
-                table: "BookCategory");
+                name: "FK_Book_Categories_BookInfo_BookID",
+                table: "Book_Categories");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_BookCategory_Categories_CategoryID",
-                table: "BookCategory");
+                name: "FK_Book_Categories_Categories_CategoryID",
+                table: "Book_Categories");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_BookInfo_Publishers_PublisherID",
@@ -93,19 +93,19 @@ namespace BookShop.Migrations
                 table: "Publishers");
 
             migrationBuilder.DropPrimaryKey(
-                name: "PK_BookCategory",
-                table: "BookCategory");
+                name: "PK_Book_Categories",
+                table: "Book_Categories");
 
             migrationBuilder.RenameTable(
                 name: "Publishers",
                 newName: "Publisher");
 
             migrationBuilder.RenameTable(
-                name: "BookCategory",
+                name: "Book_Categories",
                 newName: "Book_Category");
 
             migrationBuilder.RenameIndex(
-                name: "IX_BookCategory_CategoryID",
+                name: "IX_Book_Categories_CategoryID",
                 table: "Book_Category",
                 newName: "IX_Book_Category_CategoryID");
 

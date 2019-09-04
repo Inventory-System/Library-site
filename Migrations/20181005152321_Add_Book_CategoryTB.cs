@@ -28,8 +28,7 @@ namespace BookShop.Migrations
             migrationBuilder.AddColumn<bool>(
                 name: "IsPublish",
                 table: "BookInfo",
-                nullable: false,
-                defaultValue: false);
+                nullable: true);
 
             migrationBuilder.AddColumn<DateTime>(
                 name: "PublishDate",

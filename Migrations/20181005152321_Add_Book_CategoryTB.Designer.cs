@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookShop.Migrations
 {
     [DbContext(typeof(BookShopContext))]
-    [Migration("20190830121015_Add_TranslatorProperty")]
-    partial class Add_TranslatorProperty
+    [Migration("20181005152321_Add_Book_CategoryTB")]
+    partial class Add_Book_CategoryTB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,7 +76,7 @@ namespace BookShop.Migrations
 
                     b.Property<int>("PublishYear");
 
-                    b.Property<int>("PublisherID");
+                    b.Property<int?>("PublisherID");
 
                     b.Property<int>("Stock");
 
@@ -106,7 +106,7 @@ namespace BookShop.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.ToTable("Book_Categories");
+                    b.ToTable("Book_Category");
                 });
 
             modelBuilder.Entity("BookShop.Models.Book_Translator", b =>
@@ -119,7 +119,7 @@ namespace BookShop.Migrations
 
                     b.HasIndex("TranslatorID");
 
-                    b.ToTable("Book_Translators");
+                    b.ToTable("Book_Translator");
                 });
 
             modelBuilder.Entity("BookShop.Models.Category", b =>
@@ -289,7 +289,7 @@ namespace BookShop.Migrations
 
                     b.HasKey("PublisherID");
 
-                    b.ToTable("Publishers");
+                    b.ToTable("Publisher");
                 });
 
             modelBuilder.Entity("BookShop.Models.Translator", b =>
@@ -329,8 +329,7 @@ namespace BookShop.Migrations
 
                     b.HasOne("BookShop.Models.Publisher", "Publisher")
                         .WithMany("Books")
-                        .HasForeignKey("PublisherID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PublisherID");
                 });
 
             modelBuilder.Entity("BookShop.Models.Book_Category", b =>
