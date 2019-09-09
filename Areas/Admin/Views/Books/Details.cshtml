@@ -1,4 +1,4 @@
-﻿@model BookShop.Models.Book
+﻿@model BookShop.Models.ViewModels.ReadAllBook
 @inject BookShop.Classes.ConvertDate convertDate
 @{
     ViewData["Title"] = "Details";
@@ -27,82 +27,23 @@
                                 <p>قیمت : @Model.Price</p>
                                 <p>موجودی : @Model.Stock</p>
                                 <p>تعداد صفحات : @Model.NumOfPages</p>
-                                <p>زبان کتاب : @Model.Language.LanguageName</p>
+                                <p>زبان کتاب : @Model.LanguageName</p>
                             </div>
                             <div class="col-md-6">
 
-                                <p>ناشر : @Model.Publisher.PublisherName</p>
+                                <p>ناشر : @Model.PublisherName</p>
                                 <p>
-                                    نویسندگان :
-                                    @{string Authors = "";}
-                                    @foreach (var item in ViewBag.Authors as List<BookShop.Models.Author>)
-                                    {
-                                        if (Authors != "")
-                                        {
-                                            Authors = Authors + " - " + item.FirstName + " " + item.LastName;
-                                        }
-                                        else
-                                        {
-                                            Authors = item.FirstName + " " + item.LastName;
-                                        }
-                                    }
-
-                                    @Authors
+                                    نویسندگان :@Model.Authors
+                                   
                                 </p>
                                 <p>
-                                    مترجمان :
-                                    @{var TranslatorsList = ViewBag.Translators as List<BookShop.Models.Translator>;}
-                                    @if (TranslatorsList.Count() != 0)
-                                    {
-
-                                        string Translators = "";
-                                        @foreach (var item in TranslatorsList)
-                                        {
-                                            if (Translators != "")
-                                            {
-                                                Translators = Translators + " - " + item.Name + " " + item.Family;
-                                            }
-                                            else
-                                            {
-                                                Translators = item.Name + " " + item.Family;
-                                            }
-                                        }
-
-                                        @Translators
-                                    }
-
-                                    else
-                                    {
-                                        <span>-</span>
-                                    }
+                                    مترجمان :@Model.Translstors
+                                   
 
                                 </p>
                                 <p>
-                                    دسته بندی ها :
-                                    @{ var CategoriesList = ViewBag.Categories as List<BookShop.Models.Category>;}
-                                    @if (CategoriesList.Count() != 0)
-                                    {
-                                        string Categories = "";
-                                        @foreach (var item in CategoriesList)
-                                        {
-                                            if (Categories != "")
-                                            {
-                                                Categories = Categories + " - " + item.CategoryName;
-                                            }
-                                            else
-                                            {
-                                                Categories = item.CategoryName;
-                                            }
-                                        }
-
-                                        @Categories
-                                    }
-
-                                    else
-                                    {
-                                        <span>-</span>
-                                    }
-
+                                    دسته بندی ها :@Model.Categories
+                                   
                                 </p>
                                 <p>
                                     تاریخ انتشار :
@@ -127,6 +68,10 @@
                                     {
                                         <span>پیش نویس</span>
                                     }
+                                </p>
+                                <p>
+                                    وزن:
+                                    @Model.Weight
                                 </p>
 
                             </div>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookShop.Models;
+using BookShop.Models.ViewModels;
 
 namespace BookShop.Models
 {
@@ -40,5 +41,6 @@ namespace BookShop.Models
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Book_Category> Book_Categories { get; set; }
         public DbSet<Book_Translator> Book_Translators { get; set; }
+        public DbQuery<ReadAllBook> ReadAllBooks { get; set; }
     }
 }

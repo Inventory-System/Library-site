@@ -175,22 +175,7 @@ namespace BookShop.Areas.Admin.Controllers
 
         public IActionResult Details(int id)
         {
-            var BookInfo = _context.Books.FromSql("select *from dbo.BookInfo where BookID={0}", id)
-                .Include(l=>l.Language)
-                .Include(p=>p.Publisher).First();
-
-            ViewBag.Authors = _context.Authors.FromSql("EXEC dbo.GetAuthorsByBookID {0}", id).ToList();
-
-            ViewBag.Translators = (from r in _context.Book_Translators
-                                   join t in _context.Translator on r.TranslatorID equals t.TranslatorID
-                                   where(r.BookID==id)
-                                   select new Translator {Name=t.Name,Family=t.Family}).ToList();
-
-            ViewBag.Categories = (from o in _context.Book_Categories
-                                  join c in _context.Categories on o.CategoryID equals c.CategoryID
-                                  where (o.BookID == id)
-                                  select new Category {CategoryName=c.CategoryName}).ToList();
-
+            var BookInfo = _context.ReadAllBooks.Where(b=>b.BookID == id).First();
             return View(BookInfo);
         }
     }
