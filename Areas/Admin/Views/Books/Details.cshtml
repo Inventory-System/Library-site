@@ -1,4 +1,4 @@
-﻿@model BookShop.Models.ViewModels.ReadAllBook
+﻿@model BookShop.Models.ViewModels.ReadAllBooks
 @inject BookShop.Classes.ConvertDate convertDate
 @{
     ViewData["Title"] = "Details";
@@ -33,11 +33,11 @@
 
                                 <p>ناشر : @Model.PublisherName</p>
                                 <p>
-                                    نویسندگان :@Model.Authors
+                                    نویسندگان :@Model.Author
                                    
                                 </p>
                                 <p>
-                                    مترجمان :@Model.Translstors
+                                    مترجمان :@Model.Translators
                                    
 
                                 </p>

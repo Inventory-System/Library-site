@@ -126,7 +126,7 @@ namespace BookShop.Models.ViewModels
         public string Translator { get; set; }
         public string Category { get; set; }
     }
-    public class ReadAllBook
+    public class ReadAllBooks
     {
         public int BookID { get; set; }
         public string Title { get; set; }
@@ -140,8 +140,8 @@ namespace BookShop.Models.ViewModels
         public int PublishYear { get; set; }
         public string LanguageName { get; set; }
         public string PublisherName { get; set; }
-        public string Authors { get; set; }
-        public string Translstors { get; set; }
+        public string Author { get; set; }
+        public string Translators { get; set; }
         public string Categories { get; set; }
         public DateTime PublishDate { get; set; }
         public byte[] Image { get; set; }
