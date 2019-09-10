@@ -24,6 +24,7 @@ namespace BookShop.Models
             modelBuilder.ApplyConfiguration(new Book_TranslatorMap());
             modelBuilder.ApplyConfiguration(new Book_CategoryMap());
             modelBuilder.Query<ReadAllBooks>().ToView("ReadAllBooks");
+            modelBuilder.Entity<Book>().HasQueryFilter(b => b.Delete == false);
         }
 
         public DbSet<Book> Books { get; set; }

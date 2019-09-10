@@ -181,5 +181,22 @@ namespace BookShop.Areas.Admin.Controllers
             var BookInfo = _context.Query<ReadAllBooks>().Where(b=>b.BookID==id).First();
             return View(BookInfo);
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var Book = _context.Books.Find(id);
+            if (Book!=null)
+            {
+                Book.Delete = true;
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return NotFound();
+            }
+           
+           
+        }
     }
 }
