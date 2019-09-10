@@ -130,7 +130,7 @@ namespace BookShop.Models.ViewModels
     {
         public int BookID { get; set; }
         public string Title { get; set; }
-        //public string Summary { get; set; }
+        public string Summary { get; set; }
         public int Price { get; set; }
         public int Stock { get; set; }
         public int NumOfPages { get; set; }
