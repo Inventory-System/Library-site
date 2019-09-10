@@ -58,7 +58,7 @@ namespace BookShop.Models.Repository
                          from bct in bc.DefaultIfEmpty()
                          join c in _context.Categories on bct.CategoryID equals c.CategoryID into cg
                          from cog in cg.DefaultIfEmpty()
-                         where ( u.Book.Title.Contains(title.TrimStart().TrimEnd())
+                         where (u.Book.Delete == false && u.Book.Title.Contains(title.TrimStart().TrimEnd())
                          && u.Book.ISBN.Contains(ISBN.TrimStart().TrimEnd())
                          && EF.Functions.Like(l.LanguageName,"%"+Language+"%")
                          && u.Book.Publisher.PublisherName.Contains(Publisher.TrimStart().TrimEnd()))

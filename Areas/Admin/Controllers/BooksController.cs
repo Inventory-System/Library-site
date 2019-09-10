@@ -176,27 +176,13 @@ namespace BookShop.Areas.Admin.Controllers
         public IActionResult Details(int id)
         {
             //var BookInfo = _context.ReadAllBooks.Where(b => b.BookID == id).First();
-            //var BookInfo = _context.ReadAllBooks.FromSql("SELECT b.BookID, b.ISBN, b.Image, b.IsPublish, b.NumOfPages, b.Price, b.PublishDate, b.PublishYear, b.Stock, b.Summary, b.Title, b.Weight, l.LanguageName, p.PublisherName, dbo.GetAllAuthor(b.BookID) AS Author,dbo.GetAllTranslators(b.BookID) AS Translators, dbo.GetAllCategories(b.BookID) AS Categories FROM   dbo.BookInfo AS b INNER JOIN  dbo.Languages AS l ON b.LanguageID = l.LanguageID INNER JOIN dbo.Publishers AS p ON b.PublisherID = p.PublisherName WHERE(b.[Delete] = 0)")
-            //    .Where(b=>b.BookID==id).First();
-            var BookInfo = _context.Query<ReadAllBooks>().Where(b=>b.BookID==id).First();
-            return View(BookInfo);
-        }
 
-        public async Task<IActionResult> Delete(int id)
-        {
-            var Book = _context.Books.Find(id);
-            if (Book!=null)
-            {
-                Book.Delete = true;
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return NotFound();
-            }
-           
-           
+            //var BookInfo = _context.ReadAllBooks.FromSql("SELECT b.BookID, b.ISBN, b.Image, b.IsPublish, b.NumOfPages, b.Price, b.PublishDate, b.PublishYear, b.Stock, b.Summary, b.Title, b.Weight, l.LanguageName, p.PublisherName, dbo.GetAllAuthor(b.BookID) AS Authors, dbo.GetAllTranslators(b.BookID) AS Translators, dbo.GetAllCategories(b.BookID) AS Categories FROM  dbo.BookInfo AS b INNER JOIN dbo.Languages AS l ON b.LanguageID = l.LanguageID INNER JOIN dbo.Publishers AS p ON b.PublisherID = p.PublisherID WHERE(b.[Delete] = 0)")
+            //    .Where(b=>b.BookID==id).First();
+
+            var BookInfo = _context.Query<ReadAllBook>().Where(b => b.BookID == id).First();
+
+            return View(BookInfo);
         }
     }
 }

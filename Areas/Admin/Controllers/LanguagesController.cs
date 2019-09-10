@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookShop.Models;
-using System.Data.SqlClient;
 
 namespace BookShop.Areas.Admin.Controllers
 {
@@ -140,12 +139,9 @@ namespace BookShop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            //var language = await _context.Languages.FindAsync(id);
-            //_context.Languages.Remove(language);
-            //await _context.SaveChangesAsync();
-            object[] Parameters = { new SqlParameter("@id",id)};
-            await _context.Database.ExecuteSqlCommandAsync("delete from dbo.Languages where(LanguageID=@id)", Parameters);
-
+            var language = await _context.Languages.FindAsync(id);
+            _context.Languages.Remove(language);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

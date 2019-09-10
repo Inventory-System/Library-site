@@ -90,7 +90,7 @@ namespace BookShop
 
                 routes.MapRoute(
                     name: "default",
-                    template: "{area=Admin}/{controller=Books}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
