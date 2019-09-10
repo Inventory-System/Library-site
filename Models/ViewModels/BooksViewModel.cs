@@ -144,7 +144,7 @@ namespace BookShop.Models.ViewModels
         public string Translators { get; set; }
         public string Categories { get; set; }
         public DateTime PublishDate { get; set; }
-        //public byte[] Image { get; set; }
+        public byte[] Image { get; set; }
     }
 
 }
