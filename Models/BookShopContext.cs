@@ -23,7 +23,10 @@ namespace BookShop.Models
             modelBuilder.ApplyConfiguration(new Order_BookMap());
             modelBuilder.ApplyConfiguration(new Book_TranslatorMap());
             modelBuilder.ApplyConfiguration(new Book_CategoryMap());
-            modelBuilder.Query<ReadAllBook>().ToView("ReadAllBooks");
+            modelBuilder.Query<ReadAllBooks>().ToView("ReadAllBooks");
+            modelBuilder.Entity<Book>().HasQueryFilter(b =>(bool)!b.Delete);
+            modelBuilder.Entity<Book>().Property(b => b.Delete).HasDefaultValueSql("0");
+            modelBuilder.Entity<Book>().Property(b => b.PublishDate).HasDefaultValueSql("CONVERT(datetime,GetDate())");
         }
 
         public DbSet<Book> Books { get; set; }
@@ -42,6 +45,6 @@ namespace BookShop.Models
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Book_Category> Book_Categories { get; set; }
         public DbSet<Book_Translator> Book_Translators { get; set; }
-        public DbQuery<ReadAllBook> ReadAllBooks { get; set; }
+        public DbQuery<ReadAllBooks> ReadAllBooks { get; set; }
     }
 }

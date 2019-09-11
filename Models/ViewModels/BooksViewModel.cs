@@ -127,7 +127,7 @@ namespace BookShop.Models.ViewModels
         public string Category { get; set; }
     }
 
-    public class ReadAllBook
+    public class ReadAllBooks
     {
         public int BookID { get; set; }
         public string Title { get; set; }

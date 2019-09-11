@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace BookShop.Models
         public bool? IsPublish { get; set; }
         public DateTime? PublishDate { get; set; }
         public int PublishYear { get; set; }
+
+        [DefaultValue("0")]
         public bool? Delete { get; set; }
         public int PublisherID { get; set; }
 
