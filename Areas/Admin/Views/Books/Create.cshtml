@@ -1,5 +1,4 @@
-﻿@model BookShop.Models.ViewModels.BooksCreateViewModel
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model BookShop.Models.ViewModels.BooksCreateEditViewModel
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Admin.cshtml";
@@ -44,13 +43,15 @@
                             </div>
                             <div class="card-body">
                                 <ul id="category" class="demo1">
-                                    @foreach (var item in Model.Categories)
+                                    @foreach (var item in Model.SubCategoriesVM.Categories)
                                     {
-                                        <li>
-                                            <input type="checkbox" name="CategoryID" value="@item.id" /> @item.title
-                                            @await Html.PartialAsync("_SubCategories", item.subs)
+                                    <li>
+                                        <input type="checkbox" name="CategoryID" value="@item.id" /> @item.title
 
-                                        </li>
+                                        @{ Model.SubCategoriesVM.Categories = item.subs;}
+                                        @await Html.PartialAsync("_SubCategories", Model.SubCategoriesVM)
+
+                                    </li>
                                     }
 
                                 </ul>

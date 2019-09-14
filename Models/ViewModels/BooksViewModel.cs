@@ -6,23 +6,32 @@ using System.Threading.Tasks;
 
 namespace BookShop.Models.ViewModels
 {
-    public class BooksCreateViewModel
+    public class BooksCreateEditViewModel
     {
-        public BooksCreateViewModel(IEnumerable<TreeViewCategory> viewCategories)
+        public BooksCreateEditViewModel(BooksSubCategoriesViewModel _SubCategoriesVM)
         {
-            Categories = viewCategories;
+            SubCategoriesVM = _SubCategoriesVM;
         }
 
-        public BooksCreateViewModel()
+        public BooksCreateEditViewModel()
         {
 
         }
+
+
+        public int BookID { get; set; }
+
+        public DateTime? PublishDate { get; set; }
+
+        public BooksSubCategoriesViewModel SubCategoriesVM { get; set; }
 
         public IEnumerable<TreeViewCategory> Categories { get; set; }
 
         [Required(ErrorMessage = "وارد نمودن {0} الزامی است.")]
         [Display(Name = "عنوان ")]
         public string Title { get; set; }
+
+        public bool RecentIsPublish { get; set; }
 
         [Display(Name = "خلاصه")]
         public string Summary { get; set; }
@@ -70,6 +79,21 @@ namespace BookShop.Models.ViewModels
         public int[] CategoryID { get; set; }
     }
 
+
+
+
+    public class BooksSubCategoriesViewModel
+    {
+        public BooksSubCategoriesViewModel(List<TreeViewCategory> _Categories, int[] _CategoryID)
+        {
+            Categories = _Categories;
+            CategoryID = _CategoryID;
+        }
+
+        public List<TreeViewCategory> Categories { get; set; }
+        public int[] CategoryID { get; set; }
+    }
+
     public class AuthorList
     {
         public int AuthorID { get; set; }
@@ -86,7 +110,7 @@ namespace BookShop.Models.ViewModels
     {
         public int BookID { get; set; }
 
-        [Display(Name ="عنوان")]
+        [Display(Name = "عنوان")]
         public string Title { get; set; }
 
         [Display(Name = "قیمت")]
