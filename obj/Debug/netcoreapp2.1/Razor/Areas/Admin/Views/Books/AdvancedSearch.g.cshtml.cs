@@ -13,7 +13,18 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#line 1 "C:\Users\kakero\Desktop\BookShop\Library-site\Areas\Admin\Views\_ViewImports.cshtml"
+using BookShop;
+
+#line default
+#line hidden
+#line 2 "C:\Users\kakero\Desktop\BookShop\Library-site\Areas\Admin\Views\_ViewImports.cshtml"
+using BookShop.Models;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bdb7b898f429d8d709dd5fb7306aafecb9eb7ab7", @"/Areas/Admin/Views/Books/AdvancedSearch.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5ee4735df80bb67d1ce7d40fc94d37240032cc50", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Books_AdvancedSearch : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<BookShop.Models.ViewModels.BooksIndexViewModel>>
     {
         #pragma warning disable 1998

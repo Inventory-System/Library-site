@@ -13,18 +13,19 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-#line 1 "C:\Users\kakero\Desktop\BookShop\Library-site\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\kakero\Desktop\BookShop\Library-site\Views\Shared\_ViewImports.cshtml"
 using BookShop;
 
 #line default
 #line hidden
-#line 2 "C:\Users\kakero\Desktop\BookShop\Library-site\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\kakero\Desktop\BookShop\Library-site\Views\Shared\_ViewImports.cshtml"
 using BookShop.Models;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"583387379a597938339285f5a623245873b0a91c", @"/Views/Shared/Error.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5ee4735df80bb67d1ce7d40fc94d37240032cc50", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5ee4735df80bb67d1ce7d40fc94d37240032cc50", @"/Views/Shared/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

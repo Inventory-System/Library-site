@@ -228,7 +228,6 @@ C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.d
 C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.pdb
 C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.Views.dll
 C:\Users\kakero\Desktop\BookShop\Library-site\bin\Debug\netcoreapp2.1\BookShop.Views.pdb
-C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csprojAssemblyReference.cache
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csproj.CoreCompileInputs.cache
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorAssemblyInfo.cache
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.RazorAssemblyInfo.cs
@@ -272,3 +271,7 @@ C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.V
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.dll
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.pdb
 C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csproj.CopyComplete
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\BookShop.csprojAssemblyReference.cache
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Books\Edit.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\_ViewImports.g.cshtml.cs
+C:\Users\kakero\Desktop\BookShop\Library-site\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ViewImports.g.cshtml.cs
