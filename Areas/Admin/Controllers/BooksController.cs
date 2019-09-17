@@ -73,7 +73,7 @@ namespace BookShop.Areas.Admin.Controllers
             ViewBag.AuthorID = new SelectList(_context.Authors.Select(t => new AuthorList { AuthorID = t.AuthorID, NameFamily = t.FirstName + " " + t.LastName }), "AuthorID", "NameFamily");
             ViewBag.TranslatorID = new SelectList(_context.Translator.Select(t => new TranslatorList { TranslatorID = t.TranslatorID, NameFamily = t.Name + " " + t.Family }), "TranslatorID", "NameFamily");
 
-            BooksSubCategoriesViewModel SubCategoriesVM = new BooksSubCategoriesViewModel(_repository.GetAllCategories(), null);
+            BooksSubCategoriesViewModel SubCategoriesVM = new BooksSubCategoriesViewModel(_repository.GetAllCategories(),null);
             BooksCreateEditViewModel ViewModel = new BooksCreateEditViewModel(SubCategoriesVM);
             return View(ViewModel);
         }
@@ -164,7 +164,7 @@ namespace BookShop.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if(id==null)
             {
                 return NotFound();
             }
@@ -172,7 +172,7 @@ namespace BookShop.Areas.Admin.Controllers
             else
             {
                 var Book = _context.Books.FindAsync(id);
-                if (Book == null)
+                if(Book==null)
                 {
                     return NotFound();
                 }
@@ -196,18 +196,18 @@ namespace BookShop.Areas.Admin.Controllers
                                          PublishYear = b.PublishYear,
                                          Summary = b.Summary,
                                          Weight = b.Weight,
-                                         RecentIsPublish = (bool)b.IsPublish,
-                                         PublishDate = b.PublishDate,
+                                         RecentIsPublish=(bool)b.IsPublish,
+                                         PublishDate=b.PublishDate,
 
                                      }).FirstAsync();
 
                     int[] AuthorsArray = await (from a in _context.Author_Books
-                                                where (a.BookID == id)
-                                                select a.AuthorID).ToArrayAsync();
+                                          where (a.BookID == id)
+                                          select a.AuthorID).ToArrayAsync();
 
                     int[] TranslatorsArray = await (from t in _context.Book_Translators
-                                                    where (t.BookID == id)
-                                                    select t.TranslatorID).ToArrayAsync();
+                                              where (t.BookID == id)
+                                              select t.TranslatorID).ToArrayAsync();
 
                     int[] CategoriesArray = await (from c in _context.Book_Categories
                                                    where (c.BookID == id)
@@ -243,11 +243,11 @@ namespace BookShop.Areas.Admin.Controllers
                 try
                 {
                     DateTime? PublishDate;
-                    if (ViewModel.IsPublish == true && ViewModel.RecentIsPublish == false)
+                    if(ViewModel.IsPublish==true && ViewModel.RecentIsPublish==false)
                     {
                         PublishDate = DateTime.Now;
                     }
-                    else if (ViewModel.RecentIsPublish == true && ViewModel.IsPublish == false)
+                    else if(ViewModel.RecentIsPublish==true && ViewModel.IsPublish==false)
                     {
                         PublishDate = null;
                     }
@@ -271,8 +271,8 @@ namespace BookShop.Areas.Admin.Controllers
                         PublishYear = ViewModel.PublishYear,
                         Summary = ViewModel.Summary,
                         Weight = ViewModel.Weight,
-                        PublishDate = PublishDate,
-                        Delete = false,
+                        PublishDate=PublishDate,
+                        Delete=false,
                     };
 
                     _context.Update(book);

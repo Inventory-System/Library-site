@@ -26,7 +26,7 @@ namespace BookShop.Models
             modelBuilder.Query<ReadAllBooks>().ToView("ReadAllBooks");
             modelBuilder.Entity<Book>().HasQueryFilter(b =>(bool)!b.Delete);
             modelBuilder.Entity<Book>().Property(b => b.Delete).HasDefaultValueSql("0");
-            modelBuilder.Entity<Book>().Property(b => b.PublishDate).HasDefaultValueSql("CONVERT(datetime,GetDate())");
+            //modelBuilder.Entity<Book>().Property(b => b.PublishDate).HasDefaultValueSql("CONVERT(datetime,GetDate())");
         }
 
         public DbSet<Book> Books { get; set; }

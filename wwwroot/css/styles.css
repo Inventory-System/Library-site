@@ -9218,8 +9218,8 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
 .alert .close {
-    font-size: 15px;
-    padding: 1rem;
+    font-size: 18px;
+    padding: 2px 8px;
 }
 
     .alert .close:focus {

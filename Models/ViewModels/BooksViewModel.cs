@@ -110,7 +110,7 @@ namespace BookShop.Models.ViewModels
     {
         public int BookID { get; set; }
 
-        [Display(Name = "عنوان")]
+        [Display(Name ="عنوان")]
         public string Title { get; set; }
 
         [Display(Name = "قیمت")]
